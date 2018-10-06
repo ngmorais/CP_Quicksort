@@ -1,4 +1,4 @@
-CC=gcc
+CC=gcc-6
 SEQ_CFLAGS=-std=gnu11
 SEQ_LDFLAGS=
 PAR_CFLAGS=$(SEQ_CFLAGS) -DQSPARALLEL -fcilkplus

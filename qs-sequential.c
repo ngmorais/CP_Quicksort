@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <cilk/cilk.h>
 #include <time.h>
 #include <sys/time.h>
 
@@ -44,13 +44,14 @@ int main(int argc, char* argv[]) {
     N = atol(argv[1]);
 
     TYPE* array = malloc(sizeof(*array) * N);
+    start = wall_clock_time();
+for(int j = 0; j < 1200; j++){
     for (i = 0; i < N; i++)
         array[i] = drand48();
 
-    start = wall_clock_time();
     qsort(array, N, sizeof(*array), less_than);
+}
     end = wall_clock_time();
-
     printf("QuickSort %s: Array size = %d, Wall clock elapsed time = %ld\n", VERSION, N, (long) (end-start));
 
     free(array);
