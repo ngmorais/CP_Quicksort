@@ -45,7 +45,7 @@ int main(int argc, char* argv[]) {
 
     TYPE* array = malloc(sizeof(*array) * N);
     start = wall_clock_time();
-for(int j = 0; j < 1200; j++){
+for(int j = 0; j < 200; j++){
     for (i = 0; i < N; i++)
         array[i] = drand48();
 

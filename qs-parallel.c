@@ -48,8 +48,8 @@ void qsort_parallel_rec(TYPE* arr, int low, int high, int (*compar)(const void *
         // Separately sort elements before
         // partition and after partition
         cilk_spawn qsort_parallel_rec(arr, low, pi - 1, compar);
-        cilk_spawn qsort_parallel_rec(arr, pi + 1, high, compar);
-	cilk_sync;
+        qsort_parallel_rec(arr, pi + 1, high, compar);
+		cilk_sync;
     }
 }
 
